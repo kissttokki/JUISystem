@@ -1,0 +1,10 @@
+{
+  "name": "com.jjaery.uisystem",
+  "version": "1.0.0",
+  "displayName": "J UISystem",
+  "description": "JJaery UI",
+  "unity": "6000.5",
+  "dependencies": {
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git"
+  }
+}
