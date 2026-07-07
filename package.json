@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "displayName": "J UISystem",
   "description": "A lightweight Unity UI system package with panel and popup lifecycle management and pluggable resource loading.",
-  "unity": "6000.5",
+  "unity": "6000.0",
   "dependencies": {
     "com.unity.textmeshpro": "3.2.0",
     "com.unity.ugui": "2.0.0"
