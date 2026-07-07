@@ -5,7 +5,6 @@
   "description": "A lightweight Unity UI system package with panel and popup lifecycle management and pluggable resource loading.",
   "unity": "6000.5",
   "dependencies": {
-    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.unity.textmeshpro": "3.2.0",
     "com.unity.ugui": "2.0.0"
   },

@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public enum ResourceSystemType
     {
         UnityResource,
-#if UNITASK_ADDRESSABLE_SUPPORT
+#if USE_ADDRESSABLES
         Addressable,
 #endif
     }
