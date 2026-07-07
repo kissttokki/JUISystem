@@ -16,12 +16,12 @@
         {
             "name": "com.unity.addressables",
             "expression": "",
-            "define": "UNITASK_ADDRESSABLE_SUPPORT"
+            "define": "USE_ADDRESSABLES"
         },
         {
             "name": "com.unity.addressables.cn",
             "expression": "",
-            "define": "UNITASK_ADDRESSABLE_SUPPORT"
+            "define": "USE_ADDRESSABLES"
         }
     ],
     "noEngineReferences": false
