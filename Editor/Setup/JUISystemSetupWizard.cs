@@ -42,20 +42,7 @@ internal sealed class JUISystemSetupWizard : EditorWindow
     private void OnGUI()
     {
         GUILayout.Space(8f);
-        EditorGUILayout.LabelField("JUISystem Setup Wizard", EditorStyles.boldLabel);
-        EditorGUILayout.Space();
-
-        EditorGUILayout.HelpBox(
-            "Checks whether UniTask is installed and allows installing it if needed.",
-            MessageType.Info);
-
-        using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
-        {
-            EditorGUILayout.LabelField("UniTask Status", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField(_statusMessage ?? "Checking status...");
-        }
-
-        EditorGUILayout.Space();
+      
 
         using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
         {
@@ -79,7 +66,20 @@ internal sealed class JUISystemSetupWizard : EditorWindow
         }
 
         EditorGUILayout.Space();
+        EditorGUILayout.LabelField("JUISystem Setup Wizard", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
 
+        EditorGUILayout.HelpBox(
+            "Checks whether UniTask is installed and allows installing it if needed.",
+            MessageType.Info);
+
+        using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
+        {
+            EditorGUILayout.LabelField("UniTask Status", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(_statusMessage ?? "Checking status...");
+        }
+
+        EditorGUILayout.Space();
         using (new EditorGUI.DisabledScope(_isUniTaskInstalled || _addRequest != null))
         {
             if (GUILayout.Button("Install UniTask", GUILayout.Height(30f)))
@@ -144,12 +144,12 @@ internal sealed class JUISystemSetupWizard : EditorWindow
 
         if (_addRequest == null || _addRequest.IsCompleted == false)
             return;
-
+        
         if (_addRequest.Status == StatusCode.Success)
         {
             _statusMessage = $"UniTask installation completed: {_addRequest.Result.displayName} ({_addRequest.Result.version})";
         }
-        else if (_addRequest.Status >= StatusCode.Failure)
+        else if (_addRequest.Error != null && _addRequest.Status >= StatusCode.Failure)
         {
             _statusMessage = $"UniTask installation failed: {_addRequest.Error.message}";
         }

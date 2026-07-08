@@ -2,7 +2,8 @@
     "name": "JUISystem.Editor",
     "rootNamespace": "JUISystem.Editor",
     "references": [
-        "JUISystem"
+        "JUISystem",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [
         "Editor"
