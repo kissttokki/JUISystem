@@ -1,7 +1,9 @@
 {
 	"name": "JUISystem.Setup.Editor",
 	"rootNamespace": "JUISystem.Setup",
-	"references": [],
+	"references": [
+		"JUISystem"
+	],
 	"includePlatforms": [
 		"Editor"
 	],
