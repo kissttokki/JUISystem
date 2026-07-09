@@ -1,3 +1,4 @@
+#if UNITASK_ENABLED
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -125,3 +126,4 @@ public class UIManager : MonoBehaviour
         }
     }
 }
+#endif
