@@ -1,3 +1,4 @@
+#if UNITASK_ENABLED
 using UnityEngine;
 
 public class MainCanvasSetter : MonoBehaviour
@@ -21,3 +22,4 @@ public class MainCanvasSetter : MonoBehaviour
         UIManager.Instance.MainCanvas = this;
     }
 }
+#endif
