@@ -22,6 +22,11 @@
             "name": "com.unity.addressables.cn",
             "expression": "",
             "define": "USE_ADDRESSABLES"
+        },
+        {
+            "name": "com.cysharp.unitask",
+            "expression": "",
+            "define": "UNITASK_ENABLED"
         }
     ],
     "noEngineReferences": false

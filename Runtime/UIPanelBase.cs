@@ -1,3 +1,4 @@
+#if UNITASK_ENABLED
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,6 @@ public abstract class UIPanelBase<T> : UIPanelBase where T : UIPanelBase<T>
 
     public bool isEnable => gameObject.activeSelf;
 
-
     public async static UniTask<T> LoadPanel(Transform parent = null)
     {
         _Instance = await UIManager.Instance.ResourceSystem.LoadPanel<T>(typeof(T).Name, parent);
@@ -33,7 +33,6 @@ public abstract class UIPanelBase<T> : UIPanelBase where T : UIPanelBase<T>
         panel.Open();
         return panel;
     }
-
 
 
 #if UNITY_EDITOR
@@ -184,3 +183,5 @@ public class UIPanelBase : MonoBehaviour
         }
     }
 }
+
+#endif

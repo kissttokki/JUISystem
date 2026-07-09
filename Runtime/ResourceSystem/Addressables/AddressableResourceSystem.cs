@@ -1,4 +1,4 @@
-#if USE_ADDRESSABLES
+#if USE_ADDRESSABLES && UNITASK_ENABLED
 using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;

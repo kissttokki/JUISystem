@@ -1,3 +1,4 @@
+#if UNITASK_ENABLED
 using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -37,3 +38,4 @@ internal sealed class UnityResourceSystem : BaseResourceSystem
         return string.IsNullOrEmpty(UISystemConfig.RESOURCES_PATH) ? name : $"{UISystemConfig.RESOURCES_PATH}/{name}";
     }
 }
+#endif

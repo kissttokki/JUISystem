@@ -1,3 +1,4 @@
+#if UNITASK_ENABLED
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
@@ -107,3 +108,5 @@ public class UIPopupBase : MonoBehaviour
         _closeAwaiter = null;
     }
 }
+
+#endif

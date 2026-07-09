@@ -1,3 +1,4 @@
+#if UNITASK_ENABLED
 using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
@@ -138,3 +139,4 @@ public class CustomButton : Button, IPointerClickHandler, ISubmitHandler
         _isClicked = false;
     }
 }
+#endif
