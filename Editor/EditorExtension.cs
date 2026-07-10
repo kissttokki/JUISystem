@@ -1,3 +1,4 @@
+#if UNITASK_ENABLED
 using TMPro;
 using UnityEditor;
 using UnityEditor.ShortcutManagement;
@@ -146,3 +147,4 @@ public static class RectTransformExtension
         Selection.activeObject = (button);
     }
 }
+#endif
