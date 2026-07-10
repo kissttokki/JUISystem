@@ -1,3 +1,4 @@
+#if UNITASK_ENABLED
 using System.Linq;
 using UnityEditor;
 using UnityEditor.UI;
@@ -61,3 +62,4 @@ public class CustomButtonEditor : ButtonEditor
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

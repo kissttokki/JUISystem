@@ -1,6 +1,6 @@
 {
   "name": "com.jjaery.uisystem",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "displayName": "J UISystem",
   "description": "A lightweight Unity UI system package with panel and popup lifecycle management and pluggable resource loading.",
   "unity": "6000.0",
