@@ -10,54 +10,42 @@ using UnityEngine.UI;
 
 public class CustomButton : Button, IPointerClickHandler, ISubmitHandler
 {
-    public enum ClickSoundType
-    {
-        None,
-        Ui_Button_Common,
-        Ui_Button_Tap,
-        Ui_GetReward,
-        Sfx_PackBall,
-        Sfx_Defeat,
-        Sfx_Victory,
-        Sfx_Excavation_Break_1,
-        Sfx_Excavator_Pickax,
-        Hit_Skill_DragonBreath_6,
-        UI_Level_up,
-        Hit_Basic_swish_01,
-        Ui_Button_Confirm,
-    }
-
     private const float LONGCLICK_THRESHOLD = 0.5f; // 롱클릭 판정 시간(초)
-
-    [SerializeField] private ClickSoundType _clickSoundType = ClickSoundType.Ui_Button_Common;
-    [SerializeField] private Image _costItemImage;
-    [SerializeField] private TMP_Text _costLabel;
-
-    public Image CostItemImage => _costItemImage;
-    public TMP_Text CostLabel => _costLabel;
-
 
     private bool _isClicked = false;
 
     [SerializeField] private UnityEvent _onLongClick;
     public UnityEvent OnLongClick => _onLongClick;
 
+    [SerializeField] private UnityEvent _onMouseOver;
+    public UnityEvent OnMouseOver => _onMouseOver;
+
+    [SerializeField] private UnityEvent _onMouseLeave;
+    public UnityEvent OnMouseLeave => _onMouseLeave;
+
     private bool _isPointerDown = false;
     private bool _longClickTriggered = false;
     private CancellationTokenSource _cts;
 
-    public void SetCost(Sprite sprite, int cost)
-    {
-        _costLabel.text = cost.ToString();
 
-        if(_costItemImage != null)
-            _costItemImage.sprite = sprite;
+    public override void OnPointerEnter(PointerEventData eventData)
+    {
+        base.OnPointerEnter(eventData);
+
+        if (IsActive() == false || IsInteractable() == false)
+            return;
+
+        _onMouseOver?.Invoke();
     }
 
-
-    public void SetCost(int cost)
+    public override void OnPointerExit(PointerEventData eventData)
     {
-        _costLabel.text = cost.ToString();
+        base.OnPointerExit(eventData);
+
+        if (IsActive() == false || IsInteractable() == false)
+            return;
+
+        _onMouseLeave?.Invoke();
     }
    
     public override void OnPointerDown(PointerEventData eventData)
@@ -71,11 +59,6 @@ public class CustomButton : Button, IPointerClickHandler, ISubmitHandler
         _longClickTriggered = false;
         _cts = new CancellationTokenSource();
         CheckLongClickAsync(_cts.Token).Forget();
-
-        if(_clickSoundType != ClickSoundType.None && this.interactable == true)
-        {
-            //AudioManager.Instance.PlaySFX(_clickSoundType.ToString());
-        }
     }
 
     public override void OnPointerUp(PointerEventData eventData)

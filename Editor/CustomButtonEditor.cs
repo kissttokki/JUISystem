@@ -11,10 +11,9 @@ using UnityEngine.UI;
 public class CustomButtonEditor : ButtonEditor
 {
     private static MonoScript s_targetScript; 
-    private SerializedProperty _clickSoundType;
-    private SerializedProperty _costItemImage;
-    private SerializedProperty _costLabel;
     private SerializedProperty _onLongClick;
+    private SerializedProperty _onMouseOver;
+    private SerializedProperty _onMouseLeave;
 
     [MenuItem("CONTEXT/Button/Convert to CustomButton")]
     private static void ConvertToCustomButton(MenuCommand command)
@@ -45,20 +44,18 @@ public class CustomButtonEditor : ButtonEditor
     protected override void OnEnable()
     {
         base.OnEnable();
-        _costItemImage = serializedObject.FindProperty("_costItemImage");
-        _clickSoundType = serializedObject.FindProperty("_clickSoundType");
-        _costLabel = serializedObject.FindProperty("_costLabel");
         _onLongClick = serializedObject.FindProperty("_onLongClick");
+        _onMouseOver = serializedObject.FindProperty("_onMouseOver");
+        _onMouseLeave = serializedObject.FindProperty("_onMouseLeave");
     }
 
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        EditorGUILayout.PropertyField(_clickSoundType);
         EditorGUILayout.PropertyField(_onLongClick);
-        EditorGUILayout.PropertyField(_costItemImage);
-        EditorGUILayout.PropertyField(_costLabel);
+        EditorGUILayout.PropertyField(_onMouseOver);
+        EditorGUILayout.PropertyField(_onMouseLeave);
         serializedObject.ApplyModifiedProperties();
     }
 }

@@ -55,9 +55,10 @@ public abstract class UIPanelBase<T> : UIPanelBase where T : UIPanelBase<T>
         if (_Instance == null) _Instance = this as T;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         if (_Instance == this) _Instance = null;
+        base.OnDestroy();
     }
 }
 
@@ -151,7 +152,7 @@ public class UIPanelBase : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         if (_isClosing == false)
         {
